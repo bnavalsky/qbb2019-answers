@@ -1,0 +1,30 @@
+total 22879088
+-rw-r--r--@ 1 cmdb  staff         580 Aug 27 13:54 README.md
+-rw-r--r--  1 cmdb  staff           0 Aug 27 12:12 SRR072893.10k
+-rw-r--r--  1 cmdb  staff      443424 Aug 27 12:31 SRR072893.10k.bam
+-rw-r--r--  1 cmdb  staff      132360 Aug 27 12:32 SRR072893.10k.bam.bai
+-rw-r--r--  1 cmdb  staff     1991262 Aug 27 12:20 SRR072893.10k.fastq
+-rw-r--r--  1 cmdb  staff    31572067 Aug 27 12:47 SRR072893.10k.gtf
+-rw-r--r--  1 cmdb  staff     1821748 Aug 27 12:21 SRR072893.10k.sam
+-rw-r--r--@ 1 cmdb  staff      610311 Aug 27 11:52 SRR072893.10k_fastqc.html
+-rw-r--r--  1 cmdb  staff        6498 Aug 27 11:58 SRR072893.10k_fastqc.zip
+-rw-r--r--  1 cmdb  staff   619814364 Aug 27 13:34 SRR072893.bam
+-rw-r--r--  1 cmdb  staff      240216 Aug 27 13:34 SRR072893.bam.bai
+-r--r--r--  1 cmdb  staff  4582672018 Aug 27 13:28 SRR072893.fastq
+-rw-r--r--  1 cmdb  staff    32929643 Aug 27 13:37 SRR072893.gtf
+-rw-r--r--  1 cmdb  staff  3985446450 Aug 27 13:33 SRR072893.sam
+-rw-r--r--  1 cmdb  staff      627558 Aug 27 13:32 SRR072893_fastqc.html
+-rw-r--r--  1 cmdb  staff      511890 Aug 27 13:32 SRR072893_fastqc.zip
+-r--------  1 cmdb  staff  2418016256 Aug 27 13:30 SRR072903.fastq
+-rwxr-xr-x@ 1 cmdb  staff         458 Aug 27 13:38 doRNA-seq.sh
+-rw-r--r--  1 cmdb  staff     2154166 Aug 27 13:37 e2t.ctab
+-rw-r--r--  1 cmdb  staff     5726602 Aug 27 13:37 e_data.ctab
+-rw-r--r--  1 cmdb  staff     1745148 Aug 27 13:37 i2t.ctab
+-rw-r--r--  1 cmdb  staff     2269315 Aug 27 13:37 i_data.ctab
+-rw-r--r--  1 cmdb  staff           0 Aug 27 14:03 question2output.txt
+-rw-r--r--  1 cmdb  staff     2914398 Aug 27 13:37 t_data.ctab
+drwx------  3 cmdb  staff          96 Aug 27 13:30 tmp.7iGV4pZN
+
+/Users/cmdb/qbb2019-answers/day2-lunch/tmp.7iGV4pZN:
+total 0
+-rw-r--r--  1 cmdb  staff  0 Aug 27 13:30 SRR072893.gtf.tmp
