@@ -3,11 +3,10 @@ import sys
 
 
 for line in (sys.stdin):
-    if "DROME" and "FBgn" not in line:
+    if "DROME" not in line and "FBgn" not in line:
         continue
     
     col = line.rstrip("\n").split()
-    
     
     fly_ac = col[-1]#last col
     ac= col[-2]#2nd to last col
