@@ -33,7 +33,8 @@ ax.plot(x, y, color= "black")
 plt.title('FPKMs')
 plt.xlabel('log2(FPKM)')
 plt.ylabel('log2(frequency)')
-
+plt.text(-15, 0.15 , r'$\mu=4.3,\ \sigma=1.9,\ a=0.45$')
+#add sigma values, etc to plot
 
 fig.savefig("fpkms.png")
 plt.close(fig)
