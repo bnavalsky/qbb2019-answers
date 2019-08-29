@@ -29,7 +29,8 @@ for ident, sequence in reader:
  #        |           |
  #        i   :   end
      
-elongated_seq = []
+#elongated_seq = [] #create a set so that there are no repeats
+elongated_seq = set ()
      
 for ident, sequence in reader2:
     sequence = sequence.upper()
@@ -52,7 +53,7 @@ for ident, sequence in reader2:
                         end1 += 1
                         newtsequence += tsequence[end]
                     else:
-                        elongated_seq.append(newtsequence)
+                        elongated_seq.add(newtsequence)
                         break
                 
 for item in sorted(elongated_seq, key= len, reverse = True):
