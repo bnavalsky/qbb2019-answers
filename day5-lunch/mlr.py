@@ -24,16 +24,6 @@ histone_df = pd.DataFrame(histone_data)
 
 
 
-    
-
-# goi = pd.DataFrame(df.loc[sys.argv[2]].iloc[1:]) #iloc drops gene_name label
-# goi.columns = ["FPKM"]
-#
-# goi["FPKM"] = pd.to_numeric(goi["FPKM"])
-#
-# goi["sex"], goi ["stage"] = goi.index.str.split("_", 1).str
-
-
 model = sm.formula.ols(formula= "FPKM ~ H3K4me1 + H3K4me3 + H3K9me3", data= histone_df)
 #
 ols_result =  model.fit()
