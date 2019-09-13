@@ -14,10 +14,9 @@ sequence_length = []
 for sequence in contigs:
     sequence_length.append(len(sequence))
 
-print(sum (sequence_length)) 
 print (min(sequence_length))
 print (max(sequence_length))
-# print (sum(sequence_length)/len(contigs))
+print (sum(sequence_length)/len(contigs))
 
 #N50 23,358.0
 
