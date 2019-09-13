@@ -1,0 +1,42 @@
+download velvet, spades, lastz
+download fastq files 
+
+1. velveth
+/Users/cmdb/qbb2019-answers/09_13class $ time velveth vh 15 -fastq -shortPaired reads_low_1.fastq vh reads_low_2.fastq > 
+
+real	0m0.319s
+user	0m0.472s
+sys	0m0.480s
+
+2. velvetg
+/Users/cmdb/qbb2019-answers/09_13class $ time velvetg vh
+real	0m0.137s
+user	0m0.147s
+sys	0m0.027s
+
+3. spades
+/Users/cmdb/qbb2019-answers/09_13class $ time spades.py -s reads_low_1.fastq -sreads_low_2.fastq -o spades
+real	0m2.973s
+user	0m2.889s
+sys	0m1.272s
+
+....
+
+Users/cmdb/qbb2019-answers/09_13class $ time velveth vh2 15 -fastq -shortPaired reads_1.fastq reads_2.fastq 
+
+real	0m7.691s
+user	0m20.357s
+sys	0m0.834s
+
+/Users/cmdb/qbb2019-answers/09_13class $ time velvetg vh2
+
+real	0m11.164s
+user	0m26.263s
+sys	0m0.972s
+
+/Users/cmdb/qbb2019-answers/09_13class $ time spades.py -s reads_1.fastq -s reads_2.fastq -o spades2
+real	1m19.537s
+user	3m8.883s
+sys	0m6.488s
+
+
