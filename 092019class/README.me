@@ -1,0 +1,21 @@
+download both files
+
+/Users/cmdb/qbb2019-answers/092019class $ wget http://hgdownload.soe.ucsc.edu/goldenPath/sacCer3/bigZips/chromFa.tar.gz
+/Users/cmdb/qbb2019-answers/092019class $ tar -xvzf chromFa.tar.gz
+/Users/cmdb/qbb2019-answers/092019class $ cat *.fa > ref.fa
+/Users/cmdb/qbb2019-answers/092019class $ bwa index ref.fa
+/Users/cmdb/qbb2019-answers/092019class $ tar -xvzf BYxRM_subset.tar.xv #unzips file
+/Users/cmdb/qbb2019-answers/092019class $ bwa mem -R "@RG\tID:A01_09\tSM:A01_09 " ref.fa A01_09.fastq > A01_09.sam
+     #repeat for all files
+
+/Users/cmdb/qbb2019-answers/092019class $ samtools sort A01_09.sam > A01_09.bam
+/Users/cmdb/qbb2019-answers/092019class $ samtools index A01_09.bam
+
+/Users/cmdb/qbb2019-answers/092019class $ freebayes -f ref.fa -p 1 *.bam | vcffilter -f "QUAL > 20" | vcfallelicprimitives -kg > variants.vcf
+
+/Users/cmdb/qbb2019-answers/092019class $ snpEff download R64-1-1.86
+			
+/Users/cmdb/qbb2019-answers/092019class $ snpEff R64-1-1.86 variants.vcf > newvariants.vcf
+			
+			
+			
