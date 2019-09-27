@@ -1,0 +1,11 @@
+/Users/cmdb/qbb2019-answers/092719 $ wget http://67.207.142.119/outgoing/BYxRM_segs_saccer3.bam.simplified.vcf.xz
+/Users/cmdb/qbb2019-answers/092719 $ wget http://67.207.142.119/outgoing/BYxRM_PhenoData.txt
+/Users/cmdb/qbb2019-answers/092719 $ conda create -n labweek4 python=3 PLINK
+/Users/cmdb/qbb2019-answers/092719 $ conda activate labweek4
+(labweek4) /Users/cmdb/qbb2019-answers/092719 $ plink --allow-extra-chr --vcf BYxRM_segs_saccer3.bam.simplified.vcf
+(labweek4) /Users/cmdb/qbb2019-answers/092719 $ plink --allow-extra-chr --mind --bfile plink --pca 2 --out components
+(labweek4) /Users/cmdb/qbb2019-answers/092719 $ ./analysis.py components.eigenvec 
+(labweek4) /Users/cmdb/qbb2019-answers/092719 $ ./allele_freq.py BYxRM_segs_saccer3.bam.simplified.vcf 
+(labweek4) /Users/cmdb/qbb2019-answers/092719 $ sed 's/_/ /1' BYxRM_PhenoData.txt > phenotype.data
+(labweek4) /Users/cmdb/qbb2019-answers/092719 $ plink --allow-extra-chr --allow-no-sex --mind --vcf BYxRM_PhenoData.txt --pheno phenotype.data --assoc --out phenoassoc
+(labweek4) /Users/cmdb/qbb2019-answers/092719 $ ./manhattan.py
