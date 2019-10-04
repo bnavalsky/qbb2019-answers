@@ -1,0 +1,8 @@
+/Users/cmdb/qbb2019-answers/100419 $ wget https://www.taylorlab.org/cmdb-lab/week5_query.fa
+/Users/cmdb/qbb2019-answers/100419 $ blastn -remote -db nr -query week5_query.fa -evalue 0.0001 -max_target_seqs 1000 -outfmt "6 seqid sseq" -out query.out
+/Users/cmdb/qbb2019-answers/100419 $ sed ‘s/-//g’ query.out > new_query.out
+/Users/cmdb/qbb2019-answers/100419 $ sed ‘s/^/>/’ new_query.out > nextquery.out
+/Users/cmdb/qbb2019-answers/100419 $ awk ‘{print $1"\n”$2}’ < nextquery.out > finalquery.out
+/Users/cmdb/qbb2019-answers/100419 $ transeq -sequence finalquery.out -outseq sequence.out
+/Users/cmdb/qbb2019-answers/100419 $ mafft sequence.out > aligned.out
+/Users/cmdb/qbb2019-answers/100419 $ ./nuc_seq.py aligned.out finalquery.out 
