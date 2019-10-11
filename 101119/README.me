@@ -1,0 +1,29 @@
+create conda env
+/Users/cmdb/qbb2019-answers/101119 $ conda create -n macs2 macs2 
+/Users/cmdb/qbb2019-answers/101119 $ conda activate macs2
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ wget http://67.207.142.119/outgoing/g1e.tar.xz
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ wget http://hgdownload.soe.ucsc.edu/goldenPath/mm10/chromosomes/chr19.fa.gz
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ conda install bowtie2
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ tar xvzf g1e.tar.xz 
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ gunzip chr19.fa.gz 
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ bowtie2-build -f chr19.fa refchr19
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ bowtie2 -x refchr19 -U CTCF_ER4.fastq -S cer
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ bowtie2 -x refchr19 -U CTCF_G1E.fastq -S cge
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ bowtie2 -x refchr19 -U input_ER4.fastq -S ier
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ bowtie2 -x refchr19 -U input_G1E.fastq -S ige
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ samtools view -Sb cge > cge.bam
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ samtools view -Sb cer4 > cer4.bam
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ samtools view -Sb ier > ier.bam
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ samtools view -Sb ige > ige.bam
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ samtools sort cer4.bam > cer4sorted
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ samtools sort cge.bam > cgesorted
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ samtools sort ier.bam > iersorted
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ samtools sort ige.bam > igesorted
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ macs2 callpeak -f BAM -t cer4sorted -c iersorted -g 62309240 --outdir cp_outer4
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ macs2 callpeak -f BAM -t cgesorted -c igesorted -g 62309240 --outdir cp_outg1e
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ cut -f 1,2,3,4,5,6 cp_outer4/NA_peaks.narrowPeak > simple_er4 
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ cut -f 1,2,3,4,5,6 cp_outg1e/NA_peaks.narrowPeak > simple_g1e 
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ bedtools intersect -v -a simple_er4 -b simple_g1e > binding_CTCF
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ bedtools intersect -v -a simple_g1e -b simple_er4 > 2binding_CTCF
+(macs2) /Users/cmdb/qbb2019-answers/101119 $ ./overlapping.py feature_er4 feature_g1e binding_CTCF 2binding_CTCF 
+
