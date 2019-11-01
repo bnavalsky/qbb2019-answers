@@ -1,0 +1,11 @@
+/Users/cmdb/qbb2019-answers/110119 $ wget "https://raw.githubusercontent.com/bxlab/qbb2019/master/data/ER4_peaks.narrowPeak"
+$ conda install meme
+$ wget https://files.slack.com/files-pri/TCF7WEG02-FQ2K9JVAR/download/meme-5.1.0.tar
+$ download file from peter (JASPAR_CORE_2016.meme)
+$ sort -g -r -k 5 ER4_peaks.narrowPeak | head -n 100 > sortedERpeaks
+$ cp chr19.fa . #cp chr19.fa to current file
+$ bedtools getfasta -fi chr19.fa -bed sortedERpeaks -fo sortedpeaks.fa
+$ mate sortedpeaks.fa #change - to ,
+$ meme-chip -meme-maxw 20 -o memeresults -db JASPAR_CORE_2016.meme sortedpeaks.fa
+/Users/cmdb/qbb2019-answers/110119/memeresults/fimo_out_1 $ ./motifs.py fimo.tsv 
+
